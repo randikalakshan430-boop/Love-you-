@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#170629">
+<title>Happy Birthday, Sudu</title>
+<style>
+:root{--night:#10071f;--pink:#ffb7f0;--lilac:#d7b5ff;--gold:#ffe0ac}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#43205e,#10071f 72%);color:#fff3ff;font-family:Georgia,"Times New Roman",serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#fff 1px,transparent 1.5px);background-size:42px 42px;mask-image:linear-gradient(#000,transparent 85%)}
+main{width:min(100%,760px);margin:auto;min-height:100vh;padding:22px 18px 34px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.screen{display:none;animation:appear .8s ease both}.screen.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.kicker{text-align:center;text-transform:uppercase;letter-spacing:.26em;font:11px/1.8 Arial,sans-serif;color:#f0baf5}
+h1{text-align:center;font-size:clamp(38px,9vw,64px);line-height:1.12;font-weight:400;font-style:italic;margin:12px 0 18px;text-shadow:0 0 22px #d65cff,0 0 45px #8635ba}
+p{line-height:1.85;text-align:center;color:#f0dff5;font-size:17px}
+.hero{border:1px solid #eab6ff8c;border-radius:28px;padding:32px 20px;background:linear-gradient(#180a2b9c,#180a2bcc),url('magical-background.png') center/cover;box-shadow:0 0 35px #b33bdf35;min-height:72vh;display:flex;flex-direction:column;justify-content:center}
+.envelope{width:132px;height:90px;margin:18px auto 25px;position:relative;background:linear-gradient(145deg,#ffc5ef,#b76be1);border-radius:8px;box-shadow:0 0 35px #f28cff99;transform:rotate(-3deg)}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(35deg,transparent 49%,#fce0ff 50%,transparent 52%),linear-gradient(-35deg,transparent 49%,#e4a7f6 50%,transparent 52%);border-radius:8px}
+.seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:31px;height:31px;background:#8d2d91;border-radius:50%;display:grid;place-items:center;color:white;font-size:18px;box-shadow:0 0 13px #fff7}
+.card{border:1px solid #f3c4ff75;border-radius:24px;padding:25px 20px;background:linear-gradient(145deg,#ffffff12,#8e40b51a);box-shadow:0 0 28px #c45aff22}
+.letter{white-space:pre-line;text-align:center;line-height:2;font-size:17px;color:#fff0ff}
+.memories{display:grid;gap:22px;margin:24px 0}
+.memory{margin:0;padding:10px;border:1px solid #f3c4ff88;border-radius:18px;background:#fff1ff0b;box-shadow:0 0 25px #d65cff22}
+.memory img{display:block;width:100%;max-height:62vh;object-fit:contain;border-radius:10px;background:#160a24}
+.caption{text-align:center;font-style:italic;margin:12px 0 2px;color:#f9d7ff}
+.final-art{padding:18px 12px 24px;border-radius:24px;background:radial-gradient(ellipse at 50% 20%,#7b3ba4,#241039 58%,#10071f);border:1px solid #f4b8ff88;text-align:center;overflow:hidden}.saitama-art{display:block;width:100%;height:auto;max-height:58vh;object-fit:cover;object-position:center;border-radius:16px;margin:0 auto 20px;box-shadow:0 0 30px #d65cff55}
+.star{font-size:42px;color:#ffc8fa;text-shadow:0 0 22px #ed8aff}
+button{display:block;margin:24px auto 0;min-width:205px;padding:15px 22px;border:1px solid #f6ceff;border-radius:999px;background:linear-gradient(100deg,#6d247f,#b13fbb,#702582);color:#fff8ff;box-shadow:0 0 22px #d65cff66,inset 0 0 10px #fff3;font:12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+button:focus-visible{outline:2px solid white;outline-offset:4px}
+.small{text-align:center;font:12px/1.8 Arial,sans-serif;color:#d7b8e8;margin-top:18px}
+.music-note{text-align:center;font:12px Arial,sans-serif;color:#e7c7f5;margin-top:14px}
+@media(min-width:650px){.memories{grid-template-columns:1fr 1fr;align-items:start}.hero{min-height:650px}}
+@media(prefers-reduced-motion:reduce){.screen{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<audio id="music" src="background-music.mp3" preload="auto" loop></audio>
+<main>
+<section class="screen active" id="page1">
+<div class="hero">
+<div class="kicker">A special surprise</div>
+<div class="envelope"><div class="seal">♥</div></div>
+<h1>Happy Birthday,<br>Sudu</h1>
+<p>Psst... someone special has a surprise waiting for you.</p>
+<button onclick="begin()">Open Your Birthday Surprise</button>
+<div class="music-note">Tap to begin the music and your surprise</div>
+</div>
+</section>
+<section class="screen" id="page2">
+<div class="kicker">A little message from the heart</div>
+<div class="card">
+<h1>Happy Birthday</h1>
+<div class="letter" id="letter"></div>
+<button onclick="go(3)">Next</button>
+</div>
+</section>
+<section class="screen" id="page3">
+<div class="kicker">A few moments to keep</div>
+<h1>Our Little Memories</h1>
+<p>Some moments become precious without us even noticing. These are two little memories I wanted to keep close.</p>
+<div class="memories">
+<figure class="memory"><img src="memory-1.jpg" alt="Our first shared memory"><figcaption class="caption">A little moment to remember</figcaption></figure>
+<figure class="memory"><img src="memory-2.jpg" alt="Our second shared memory"><figcaption class="caption">A memory close to my heart</figcaption></figure>
+</div>
+<button onclick="go(4)">Next</button>
+</section>
+<section class="screen" id="page4">
+<div class="final-art">
+<div class="kicker">And now, your final surprise</div>
+<img class="saitama-art" src="saitama-final.png" alt="Saitama in a glowing pink and purple birthday garden">
+<h1>Happy Birthday,<br>Sudu!</h1>
+<p>You are someone truly special.<br>May your day be filled with happiness,<br>beautiful moments, and reasons to smile.</p>
+<p>Keep being the wonderful person you are.</p>
+<div class="star">✧</div>
+<button onclick="replay()">Replay the Surprise</button>
+<div class="small">Made especially for you</div>
+</div>
+</section>
+</main>
+<script>
+const letterText = `Happy Birthday, to someone truly special.
+
+Today is your day, and I hope it brings you beautiful moments, genuine happiness, and memories you'll always treasure.
+
+May your dreams grow bigger, your heart stay peaceful, and your future be filled with wonderful opportunities.
+
+You deserve kindness, happiness, and all the beautiful things life has to offer.
+
+Happy Birthday. May your special day be as wonderful as you are.`;
+let typingTimer;
+function show(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('page'+n).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+function begin(){const m=document.getElementById('music');m.volume=.45;m.play().catch(()=>{});show(2);typeLetter();}
+function typeLetter(){clearInterval(typingTimer);const target=document.getElementById('letter');target.textContent='';let i=0;typingTimer=setInterval(()=>{target.textContent=letterText.slice(0,i++);if(i>letterText.length)clearInterval(typingTimer);},28);}
+function go(n){clearInterval(typingTimer);show(n);}
+function replay(){document.getElementById('music').currentTime=0;show(1);}
+</script>
+</body>
+</html>
